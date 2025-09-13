@@ -524,6 +524,9 @@
                 <th class="p-3 sm:p-6 text-xs sm:text-sm font-bold tracking-wider uppercase text-sky-400">
                   <i class="fa-solid fa-user mr-1 sm:mr-2"></i>Student Name
                 </th>
+                <th class="p-3 sm:p-6 text-xs sm:text-sm font-bold tracking-wider uppercase text-sky-400">
+                  <i class="fa-solid fa-clock mr-1 sm:mr-2"></i>Est. Wait
+                </th>
                 <th class="p-3 sm:p-6 text-xs sm:text-sm font-bold tracking-wider uppercase text-center text-sky-400">
                   <i class="fa-solid fa-cog mr-1 sm:mr-2"></i>
                   <span class="hidden sm:inline">Action</span>
@@ -583,8 +586,8 @@
   })();
 
 
-
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxssexhP1bFA998g9cIHa2Cam94IXWh4g09w0_Ds5CMuedkXsiLCIOJAQTHzokXMD5W/exec';
+    const AVG_TIME_PER_PERSON_MINUTES = 3;
 
     const queueTableBody = document.getElementById('queue-table-body');
     const loaderContainer = document.getElementById('loader-container');
@@ -667,10 +670,12 @@
     }
     
     function updateTable(queue) {
+      queueTableBody.innerHTML = '';
       if (queue.length === 0) {
         emptyState.style.display = 'block';
       } else {
         queue.forEach((student, index) => {
+          const waitTime = index * AVG_TIME_PER_PERSON_MINUTES;
           const tr = document.createElement('tr');
           tr.className = 'border-b border-slate-700/30';
           tr.style.animationDelay = `${index * 0.1}s`;
@@ -687,6 +692,10 @@
                 </div>
                 <span class="text-sm sm:text-lg font-medium">${student.name}</span>
               </div>
+            </td>
+            <td class="p-3 sm:p-6 text-sm sm:text-base font-medium text-slate-300">
+              <i class="fa-regular fa-clock mr-2 text-sky-400"></i>
+              ~ ${waitTime} min
             </td>
             <td class="p-3 sm:p-6 text-center">
               <button class="meal-received-btn btn-success text-white font-semibold px-3 sm:px-6 py-2 sm:py-3 rounded-xl text-xs sm:text-sm transition-all inline-flex items-center" data-row="${student.row}">
@@ -820,3 +829,4 @@
   </script>
 </body>
 </html>
+
