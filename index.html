@@ -7,6 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
   <style>
     
     body {
@@ -33,7 +34,7 @@
       position: absolute;
       border-radius: 50%;
       background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(129, 140, 248, 0.1));
-      animation: float 20s infinite linear;
+      animation: float 12s infinite linear;
     }
 
     .shape:nth-child(1) {
@@ -58,6 +59,30 @@
       bottom: 20%;
       left: 20%;
       animation-delay: 14s;
+    }
+
+    .shape:nth-child(4) {
+      width: 100px;
+      height: 100px;
+      top: 10%;
+      right: 5%;
+      animation-delay: 3s;
+    }
+
+    .shape:nth-child(5) {
+      width: 50px;
+      height: 50px;
+      bottom: 10%;
+      right: 30%;
+      animation-delay: 10s;
+    }
+
+    .shape:nth-child(6) {
+      width: 70px;
+      height: 70px;
+      top: 50%;
+      left: 35%;
+      animation-delay: 5s;
     }
 
     @media (min-width: 768px) {
@@ -416,6 +441,9 @@
     <div class="shape"></div>
     <div class="shape"></div>
     <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
   </div>
 
   <!-- Hero Section -->
@@ -447,7 +475,7 @@
           <i class="fa-solid fa-chart-line mr-2 sm:mr-3"></i>
           View Dashboard
         </a>
-        <a href="#dashboard" class="glass-card hover:bg-slate-700/50 text-slate-300 font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg inline-flex items-center justify-center">
+        <a href="#add-student" class="glass-card hover:bg-slate-700/50 text-slate-300 font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg inline-flex items-center justify-center">
           <i class="fa-solid fa-user-plus mr-2 sm:mr-3"></i>
           Add Student
         </a>
@@ -498,6 +526,27 @@
           <button class="meal-btn flex-1 font-semibold text-slate-300 py-3 sm:py-4 px-3 sm:px-6 rounded-xl text-sm sm:text-base" data-meal="Dinner">
             <i class="fa-solid fa-moon mr-1 sm:mr-2"></i>Dinner
           </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Queue Stats Section -->
+    <section class="mb-6 sm:mb-8 scroll-reveal">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+        <!-- Now Serving Card -->
+        <div class="glass-card p-6 rounded-2xl text-center">
+          <p class="text-sm font-semibold text-sky-400 mb-2">NOW SERVING</p>
+          <p id="stat-now-serving" class="text-4xl font-extrabold text-white">--</p>
+        </div>
+        <!-- Total Waiting Card -->
+        <div class="glass-card p-6 rounded-2xl text-center">
+          <p class="text-sm font-semibold text-sky-400 mb-2">TOTAL WAITING</p>
+          <p id="stat-total-waiting" class="text-4xl font-extrabold text-white">0</p>
+        </div>
+        <!-- Est. Wait Card -->
+        <div class="glass-card p-6 rounded-2xl text-center">
+          <p class="text-sm font-semibold text-sky-400 mb-2">EST. WAIT FOR NEW ENTRY</p>
+          <p id="stat-est-wait" class="text-4xl font-extrabold text-white">~ 0 min</p>
         </div>
       </div>
     </section>
@@ -560,38 +609,43 @@
           Smart Queue is a project dedicated to solving the persistent problem of long queues and waiting times in campus canteens and corporate cafeterias. By leveraging real-time data and a simple, intuitive interface, we aim to create a stress-free and efficient dining experience for everyone.
         </p>
         <div class="border-t border-slate-700/50 pt-8">
-          <h3 class="text-xl sm:text-2xl font-bold mb-8 text-center">Meet the Team</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <h3 class="text-3xl sm:text-4xl font-extrabold text-center mb-10 
+            font-['Orbitron',monospace] text-sky-400 
+            drop-shadow-[0_0_10px_#0ea5e9]">
+                ⚡ HackMasterz ⚡
+            </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             <!-- Team Member 1 -->
             <div class="text-center">
-              <img src="https://ui-avatars.com/api/?name=Manas+Sharma&background=0ea5e9&color=fff&size=128" alt="Team Member Alex Johnson" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-600/50 shadow-lg">
+              <img src="https://ui-avatars.com/api/?name=Manas+Sharma&background=0ea5e9&color=fff&size=128" alt="Team Member Manas Sharma" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-600/50 shadow-lg">
               <h4 class="text-xl font-bold">Manas Sharma</h4>
-              
+              <p class="text-slate-400">Project Lead</p>
             </div>
             <!-- Team Member 2 -->
             <div class="text-center">
-              <img src="https://ui-avatars.com/api/?name=Vivek+Kaushik&background=8b5cf6&color=fff&size=128" alt="Team Member Maria Garcia" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-600/50 shadow-lg">
+              <img src="https://ui-avatars.com/api/?name=Vivek+Kaushik&background=8b5cf6&color=fff&size=128" alt="Team Member Vivek Kaushik" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-600/50 shadow-lg">
               <h4 class="text-xl font-bold">Vivek Kaushik</h4>
-             
+              <p class="text-slate-400">Backend Developer</p>
             </div>
             <!-- Team Member 3 -->
             <div class="text-center">
-              <img src="https://ui-avatars.com/api/?name=King+Kapoor&background=8b5cf6&color=fff&size=128" alt="Team Member Maria Garcia" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-600/50 shadow-lg">
+              <img src="https://ui-avatars.com/api/?name=King+Kapoor&background=10b981&color=fff&size=128" alt="Team Member King Kapoor" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-600/50 shadow-lg">
               <h4 class="text-xl font-bold">King Kapoor</h4>
-             
+              <p class="text-slate-400">Frontend Developer</p>
             </div>
+            <!-- Team Member 4 -->
             <div class="text-center">
-              <img src="https://ui-avatars.com/api/?name=Shreya+Patra&background=8b5cf6&color=fff&size=128" alt="Team Member Maria Garcia" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-600/50 shadow-lg">
+              <img src="https://ui-avatars.com/api/?name=Shreya+Patra&background=f59e0b&color=fff&size=128" alt="Team Member Shreya Patra" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-600/50 shadow-lg">
               <h4 class="text-xl font-bold">Shreya Patra</h4>
-             
+              <p class="text-slate-400">UI/UX Designer</p>
             </div>
+            <!-- Team Member 5 -->
             <div class="text-center">
-              <img src="https://ui-avatars.com/api/?name=Aditi+Varshney&background=8b5cf6&color=fff&size=128" alt="Team Member Maria Garcia" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-600/50 shadow-lg">
+              <img src="https://ui-avatars.com/api/?name=Aditi+Varshney&background=ef4444&color=fff&size=128" alt="Team Member Aditi Varshney" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-600/50 shadow-lg">
               <h4 class="text-xl font-bold">Aditi Varshney</h4>
-             
+              <p class="text-slate-400">QA Engineer</p>
             </div>
-          
-
           </div>
         </div>
       </div>
@@ -649,6 +703,9 @@
     const addStudentBtn = document.getElementById('add-student-btn');
     const mealSelectorContainer = document.getElementById('meal-selector-container');
     const currentMealTitle = document.getElementById('current-meal-title');
+    const statNowServing = document.getElementById('stat-now-serving');
+    const statTotalWaiting = document.getElementById('stat-total-waiting');
+    const statEstWait = document.getElementById('stat-est-wait');
 
     let currentMeal = 'Lunch';
 
@@ -718,6 +775,11 @@
     }
     
     function updateTable(queue) {
+      // Update stats
+      statNowServing.textContent = queue.length > 0 ? queue[0].token : '--';
+      statTotalWaiting.textContent = queue.length;
+      statEstWait.textContent = `~ ${queue.length * AVG_TIME_PER_PERSON_MINUTES} min`;
+
       queueTableBody.innerHTML = '';
       if (queue.length === 0) {
         emptyState.style.display = 'block';
