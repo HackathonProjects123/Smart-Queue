@@ -433,6 +433,43 @@
         transform: scale(0.99);
       }
     }
+
+
+    #google_translate_element {
+      margin-top: 15px;
+      text-align: right;
+      margin-right: 10px;
+    }
+
+    /* Hide Google logo and "Powered by Google" */
+    .goog-logo-link, .goog-logo-link * {
+      display: none !important;
+    }
+    .goog-te-gadget img {
+      display: none !important;
+    }
+
+    /* Customize dropdown */
+    .goog-te-combo {
+      height: 30px !important;
+      line-height: 30px !important;
+      font-size: 13px !important;
+      padding: 5px 12px !important;
+      border-radius: 6px !important;
+      border: 1px solid #ccc !important;
+      background-color: #378db7 !important;
+      font-weight: 600;
+      color: #ffffff !important;
+      cursor: pointer !important;
+      width: auto !important;
+      min-width: 150px !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .goog-te-combo:hover {
+      border-color: #4CAF50 !important;
+      background-color: #1e77a3 !important;
+    } 
   </style>
 </head>
 <body class="antialiased">
@@ -445,7 +482,7 @@
     <div class="shape"></div>
     <div class="shape"></div>
   </div>
-
+      <div id="google_translate_element"></div>
   <!-- Hero Section -->
   <section class="relative min-h-screen flex items-center justify-center px-4 sm:px-6">
     <div class="text-center max-w-6xl mx-auto">
@@ -475,7 +512,7 @@
           <i class="fa-solid fa-chart-line mr-2 sm:mr-3"></i>
           View Dashboard
         </a>
-        <a href="#dashboard" class="glass-card hover:bg-slate-700/50 text-slate-300 font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg inline-flex items-center justify-center">
+        <a href="#add-student" class="glass-card hover:bg-slate-700/50 text-slate-300 font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg inline-flex items-center justify-center">
           <i class="fa-solid fa-user-plus mr-2 sm:mr-3"></i>
           Add Student
         </a>
@@ -612,7 +649,7 @@
             <h3 class="text-3xl sm:text-4xl font-extrabold text-center mb-10 
             font-['Orbitron',monospace] text-sky-400 
             drop-shadow-[0_0_10px_#0ea5e9]">
-                 ⚡HackMasterz⚡ 
+                ⚡ HackMasterz ⚡
             </h3>
             
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
@@ -937,8 +974,20 @@
       }
     });
   </script>
+
+  <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'hi,bn,gu,kn,ml,mr,or,pa,ta,te,ur,as',
+    layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+  }, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" 
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
 </body>
 </html>
-
-
 
